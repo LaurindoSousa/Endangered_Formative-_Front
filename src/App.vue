@@ -1,6 +1,6 @@
 <template>
 <div>
-
+  <h1>Hello World</h1>
 </div>
 
  <button @click="getAnimals" type="button">Get Animals</button>
