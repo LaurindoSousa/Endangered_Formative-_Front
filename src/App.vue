@@ -6,23 +6,23 @@
     <form>
       <div class="form-group">
         <label for="name">Name</label>
-        <input id="name">
+        <input v-model="name" id="name">
       </div>
       <div class="form-group">
-        <label for="sciencename">Scientific Name</label>
-        <input id="sciencename">
+        <label for="scientific">Scientific Name</label>
+        <input v-model="scientific" id="scientific">
       </div>
       <div class="form-group">
-        <label for="habitat">Habitat</label>
-        <input id="habitat">
+        <label for="habitats">Habitat</label>
+        <input v-model="habitats" id="habitats">
       </div>
       <div class="form-group">
         <label for="population">Population</label>
-        <input id="population">
+        <input v-model="population" id="population">
       </div>
       <div class="form-group">
         <label for="status">Status</label>
-        <select v-model="priority" id="status">
+        <select v-model="status" id="status">
           <option value="0">Critically Endangered</option>
           <option value="1">Endangered</option>
           <option value="2">Vulnerable</option>
@@ -39,13 +39,16 @@
 
 <script>
   export default {
+    components:{
+    },
     data() {
       return {
         name: "",
         scientific: "",
-        status: 0,
+        status: null,
         habitats: "",
         population: "",
+        id:"",
 
         animalsArray: [],
       }
@@ -64,8 +67,14 @@
           })
         });
         const data = await response.json();
-        console.log(animalsArray);
+        console.log("New Entry has been added.");
+        this.getAnimals();
       },
+      async getAnimals() {
+        const response = await fetch('http://localhost:3000/animals');
+        const data = await response.json();
+        this.animalsArray = data;
+      }
     }
   }
 </script>
