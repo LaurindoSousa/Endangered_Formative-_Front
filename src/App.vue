@@ -68,12 +68,6 @@
         });
         const data = await response.json();
         console.log("New Entry has been added.");
-        this.getAnimals();
-      },
-      async getAnimals() {
-        const response = await fetch('http://localhost:3000/animals');
-        const data = await response.json();
-        this.animalsArray = data;
       }
     }
   }
