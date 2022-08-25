@@ -29,7 +29,7 @@
         // console.log('hello');
         const response = await fetch ('http://localhost:3000/animals');
         const data = await response.json()
-        //console.log(data);
+        console.log(data);
         this.animalsArray = data;
        
 
