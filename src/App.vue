@@ -14,18 +14,23 @@
     <h4>Search by</h4>
 <ul>
   
-  <li><input @click="getAnimals" value="All" type="button"></li>
-  <li><input value="Critically Endangered" type="button"></li>
-  <li><input value="Endangered" type="button"></li>
-  <li><input value="Vulnerable" type="button"></li>
-  <li><input value="Near Threatened" type="button"></li>
+  <li><button @click="getAnimalByCategory" value="All" type="button">All</button></li>
+  <li><button @click="getAnimalByCategory" value="0" type="button">Critically Endangered</button></li>
+  <li><button @click="getAnimalByCategory" value="1" type="button">Endangered</button></li>
+  <li><button @click="getAnimalByCategory" value="2" type="button">Vulnerable</button></li>
+  <li><button @click="getAnimalByCategory" value="3" type="button">Near Threatened</button></li>
 </ul>
   </div>
 <!-- Post button insert here -->
 </div>
 
 <div class="card-container">
-<ul>
+
+<ul id="categorised-list-items">
+  <AnimalListItem v-for="animal of categorisedArray" :animalItem="animal" :key="animal.id"/>
+</ul>
+
+<ul id="all-animals">
   <AnimalListItem v-for="animal of animalsArray" :animalItem="animal" :key="animal.id"/>
 </ul>
 </div>
@@ -50,10 +55,15 @@ import AnimalListItem from "./components/AnimalListItem.vue";
         status:0,
         population:"",
         habitat:"",
-        animalsArray:[]
+        animalsArray:[],
+        categorisedArray:[],
       }
 
     },
+ mounted(){
+      this.getAnimals();
+    },
+
     methods: {
       async getAnimals() {
         // console.log('hello');
@@ -63,13 +73,31 @@ import AnimalListItem from "./components/AnimalListItem.vue";
         this.animalsArray = data;
             console.log(this.animalsArray);
 
-      }
-    },
-    mounted(){
-      this.getAnimals;
+      },
+
+getAnimalByCategory(e){
+  const categoryValue =  e.target.value;
+  
+
+  if (categoryValue != "All"){
+    const categorisedArray =  this.animalsArray.filter((animal)=>{
+    return animal.statusId === categoryValue
+  });
+  this.categorisedArray = categorisedArray;
+
+  document.querySelector("#categorised-list-items").style.display = "flex";
+  document.querySelector("#all-animals").style.display = "none";
+  } else{
+      document.querySelector("#categorised-list-items").style.display = "none";
+  document.querySelector("#all-animals").style.display = "flex";
+  }
+}
+     
     }
 
   }
+
+  // this.getAnimals();
 </script>
 
 <style scoped>
@@ -85,4 +113,12 @@ import AnimalListItem from "./components/AnimalListItem.vue";
 
 }
 
-</style> TESTING COMMIT
+
+#categorised-list-items{
+  display:none;
+}
+#all-animals{
+  display:flex;
+}
+
+</style> 
