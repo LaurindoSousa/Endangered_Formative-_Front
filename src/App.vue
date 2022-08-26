@@ -1,11 +1,5 @@
 <template>
-<div>
-  <h1>Hello World</h1>
-  <button @click="deleteAnimals(0)" type="button">Delete</button>
-</div>
 
- <button @click="getAnimals" type="button">Get Animals</button>
- {{animalsArray}}
 
 </template>
 
