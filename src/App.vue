@@ -14,24 +14,34 @@
     <h4>Search by</h4>
 <ul>
   
-  <li><button @click="getAnimals" type="button">All</button></li>
-  <li><button>Critically Endangered</button></li>
-  <li><button>Endangered</button></li>
-  <li><button>Vulnerable</button></li>
-  <li><button>Near Threatened</button></li>
+  <li><input @click="getAnimals" value="All" type="button"></li>
+  <li><input value="Critically Endangered" type="button"></li>
+  <li><input value="Endangered" type="button"></li>
+  <li><input value="Vulnerable" type="button"></li>
+  <li><input value="Near Threatened" type="button"></li>
 </ul>
-
   </div>
+<!-- Post button insert here -->
+</div>
 
+<div class="card-container">
+<ul>
+  <AnimalListItem v-for="animal of animalsArray" :animalItem="animal" :key="animal.id"/>
+</ul>
 </div>
 
 </template>
 
 <script>
+
+import Banner from "./components/Banner.vue";
+import AnimalListItem from "./components/AnimalListItem.vue";
+
   export default {
     components: {
-
-    },
+    Banner,
+    AnimalListItem
+},
     data() {
 
       return{
@@ -51,13 +61,28 @@
         const data = await response.json()
         console.log(data);
         this.animalsArray = data;
-       
+            console.log(this.animalsArray);
 
-      },
+      }
+    },
+    mounted(){
+      this.getAnimals;
     }
+
   }
 </script>
 
 <style scoped>
+
+.card-container ul{
+  width:100vw;
+  height:fit-content;
+
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: center;
+
+}
 
 </style>
