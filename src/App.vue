@@ -1,5 +1,6 @@
 <template>
 
+
 <header>
   <div id="header-signin">Sign in</div>
 <div id="header-donate"><a href="https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly&s_src=AWE2212OQ18299A06206CX&s_subsrc=topnav&_ga=2.14339250.486991054.1661133227-873731236.1660792952">Donate</a></div>
@@ -35,6 +36,7 @@
 </ul>
 </div>
 
+
 </template>
 
 <script>
@@ -43,12 +45,12 @@ import Banner from "./components/Banner.vue";
 import AnimalListItem from "./components/AnimalListItem.vue";
 
   export default {
+
     components: {
     Banner,
     AnimalListItem
 },
-    data() {
-
+    data(){
       return{
         name:"",
         scientific:"",
@@ -59,10 +61,10 @@ import AnimalListItem from "./components/AnimalListItem.vue";
         categorisedArray:[],
       }
 
+      }
     },
- mounted(){
-      this.getAnimals();
-    },
+    
+
 
     methods: {
       async getAnimals() {
@@ -71,10 +73,26 @@ import AnimalListItem from "./components/AnimalListItem.vue";
         const data = await response.json()
         console.log(data);
         this.animalsArray = data;
-            console.log(this.animalsArray);
+           console.log(this.animalsArray);
 
       },
 
+      },
+        
+
+      async deleteAnimals(id) {
+        
+        const response = await fetch(`http://localhost:3000/animals/${id}`, {
+        method: 'DELETE',
+        });
+        
+        const data = await response.json();
+       
+        console.log(data);
+  
+        this.animalsArray = data;
+      },
+       
 getAnimalByCategory(e){
   const categoryValue =  e.target.value;
   
@@ -93,11 +111,14 @@ getAnimalByCategory(e){
   }
 }
      
-    }
-
+    },
+     mounted(){
+      this.getAnimals();
+    },
   }
 
   // this.getAnimals();
+
 </script>
 
 <style scoped>

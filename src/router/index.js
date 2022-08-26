@@ -5,11 +5,11 @@ const router = createRouter({
   routes: [
     {
       path: '/animals',
-      name: 'App.vue',
+      name: 'app.vue',
       component: () => import('../App.vue')
-    },
-
+    }
+    
   ]
-})
+});
 
 export default router
