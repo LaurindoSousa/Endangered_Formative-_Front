@@ -60,14 +60,10 @@ import AnimalListItem from "./components/AnimalListItem.vue";
       }
 
     },
- mounted(){
-      this.getAnimals();
-    },
-
     methods: {
       async getAnimals() {
-        // console.log('hello');
-        const response = await fetch ('http://localhost:3000/animals');
+        console.log('hello');
+        const response = await fetch('http://localhost:3000/animals');
         const data = await response.json()
         console.log(data);
         this.animalsArray = data;
@@ -93,7 +89,10 @@ getAnimalByCategory(e){
   }
 }
      
-    }
+    },
+     mounted(){
+      this.getAnimals();
+    },
 
   }
 
