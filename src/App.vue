@@ -38,19 +38,24 @@
 </template>
 
 <script>
+  import Banner from "./components/Banner.vue";
+  import AnimalListItem from "./components/AnimalListItem.vue";
+
   export default {
     components:{
+      Banner,
+      AnimalListItem
     },
     data() {
       return {
         name: "",
         scientific: "",
-        status: null,
-        habitats: "",
+        status: 0,
         population: "",
-        id:"",
+        habitats: "",
 
         animalsArray: [],
+        categorisedArray: []
       }
     },
     methods: {
@@ -68,9 +73,42 @@
         });
         const data = await response.json();
         console.log("New Entry has been added.");
+      },
+      async getAnimals() {
+        const response = await fetch('http://localhost:3000/animals');
+        const data = await response.json();
+        console.log(data);
+        this.animalsArray = data;
+        console.log(this.animalsArray);
+      },
+      async deleteAnimals(id) {
+        const response = await fetch(`http://localhost:3000/animals/${id}`, {
+          method: 'DELETE',
+        });
+        const data = await response.json();
+        console.log(data);
+        this.animalsArray = data;
+      },
+      getAnimalsByCategory(e) {
+        const categoryValue = e.target.value;
+        if(categoryValue != "All") {
+          const categorisedArray = this.animalsArray.filter((animal) => {
+            return animal.statusId === categoryValue
+          });
+          this.categorisedArray = categorisedArray;
+
+          document.querySelector("#categorised-list-items").style.display = "flex";
+          document.querySelector("#all-animals").style.display = "none";
+        } else {
+          document.querySelector("#categorised-list-items").style.display = "none";
+          document.querySelector("#all-animals").style.display = "flex";
+        }
+        },
+      },
+      mounted() {
+        this.getAnimals();
       }
     }
-  }
 </script>
 
 <style scoped>
@@ -80,5 +118,23 @@
 
 label{
   margin-right: 1em;
+}
+
+.card-container ul {
+  width: 100vw;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#categorised-list-items {
+  display: none;
+}
+
+#all-animals {
+  display: flex;
 }
 </style>
