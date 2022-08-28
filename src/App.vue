@@ -1,4 +1,13 @@
 <template>
+    <header>
+    <div id="header-signin">Sign in</div>
+    <div id="header-donate"><a
+        href="https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly&s_src=AWE2212OQ18299A06206CX&s_subsrc=topnav&_ga=2.14339250.486991054.1661133227-873731236.1660792952">Donate</a>
+    </div>
+  </header>
+
+  <Banner />
+
   <div>
     <div>
       <h2>New Entry</h2>
@@ -31,9 +40,31 @@
       </div>
       <button @click="addNewEntry" type="button">Post New Entry</button>
     </form>
-    <div>
-      <h2>Add Image</h2>
+  </div>
+
+  <div class="menu-container">
+    <div id="menu-categories">
+      <h4>Search by</h4>
+      <ul>
+        <li><button @click="getAnimalByCategory" value="All" type="button">All</button></li>
+        <li><button @click="getAnimalByCategory" value="0" type="button">Critically Endangered</button></li>
+        <li><button @click="getAnimalByCategory" value="1" type="button">Endangered</button></li>
+        <li><button @click="getAnimalByCategory" value="2" type="button">Vulnerable</button></li>
+        <li><button @click="getAnimalByCategory" value="3" type="button">Near Threatened</button></li>
+      </ul>
     </div>
+    <!-- Post button insert here -->
+  </div>
+
+  <div class="card-container">
+
+    <ul id="categorised-list-items">
+      <AnimalListItem v-for="animal of categorisedArray" :animalItem="animal" :key="animal.id" />
+    </ul>
+
+    <ul id="all-animals">
+      <AnimalListItem v-for="animal of animalsArray" :animalItem="animal" :key="animal.id" />
+    </ul>
   </div>
 </template>
 
