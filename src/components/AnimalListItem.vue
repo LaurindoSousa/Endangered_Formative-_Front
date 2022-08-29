@@ -1,7 +1,7 @@
 <template>
 <div class="single-card">
             <div class="card-image">
-                <img src="./assets/images/hidde-rensink-Erzyy3Gy2LU-unsplash.jpg" alt="">
+                <img src="" alt="">
             </div>
             <div class="card-text">
                 <div class="card-status critical">
@@ -16,7 +16,7 @@
                     <li class="card-items"><i class="fa-solid fa-chart-simple"></i>{{animalItem.population}}</li>
                 </ul>
                 <div class="card-more">
-                    <i class="fa-solid fa-trash-can" @click="deleteAnimals"></i>
+                    <i class="fa-solid fa-trash-can" @click="$emit('deleteAnimals',animalItem.id)"></i>
                 </div>
             </div>
         </div>
@@ -33,7 +33,6 @@
 <style scoped>
     li{
        list-style: none;
-       border: 2px solid black;
     }
     .card__image{
        width: 300px;
@@ -56,19 +55,15 @@
         background-color: #E5E7E9;
     }
     h2{
-        font-family: "Lettown-Hills";
-        font-weight: 100;
-    }
-    .cards{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+        font-size:2em;
     }
     .single-card{
         width: 300px;
-        height: 432px;
+        height: 500px;
         background-color: white;
-        box-shadow: 10px 10px 10px #888888;
+        box-shadow: 6px 8px 10px #888888;
         margin: 1em 0;
     }
 
@@ -92,6 +87,10 @@
     .card-status{
         text-transform: uppercase;
     }
+    .card-status p{
+        font-family: 'Oswald', sans-serif;
+        
+    }
     .card-list{
         text-decoration: none;
     }
@@ -99,6 +98,8 @@
     .card-items{
         list-style: none;
         margin: 1em 0;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
     }
 
     .card-items i{
