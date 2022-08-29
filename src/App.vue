@@ -1,9 +1,16 @@
 <template>
     <header>
-    <div id="header-signin">Sign in</div>
-    <div id="header-donate"><a
-        href="https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly&s_src=AWE2212OQ18299A06206CX&s_subsrc=topnav&_ga=2.14339250.486991054.1661133227-873731236.1660792952">Donate</a>
-    </div>
+      <div class="header-logo">
+        <img src="./assets/images/c9f34cec3988478ae238dac81daa8171.png" alt="">
+        <h3>WWF</h3>
+      </div>
+      <div class="header-right">
+        <div id="header-signin">Sign In</div>
+        <div id="header-donate"><a
+            href="https://support.worldwildlife.org/site/SPageServer?pagename=main_monthly&s_src=AWE2212OQ18299A06206CX&s_subsrc=topnav&_ga=2.14339250.486991054.1661133227-873731236.1660792952">
+            DONATE<p>|</p><i class="fa-solid fa-plus"></i></a>
+        </div>
+      </div>
   </header>
 
   <Banner />
@@ -176,7 +183,6 @@ label{
 }
 
 .card-container ul {
-  width: 100vw;
   height: fit-content;
 
   display: flex;
@@ -187,10 +193,11 @@ label{
 
 #categorised-list-items {
   display: none;
+  gap: 1.5em;
 }
 
 #all-animals {
   display: flex;
-  gap:20px;
+  gap: 1.5em;
 }
 </style>
