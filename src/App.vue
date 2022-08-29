@@ -49,10 +49,10 @@
     
       <label for="name">STATUS</label>
      <select v-model="status" id="status" >
-    <option value ="0">Critically Endangered</option>
-    <option value ="1">Endangered</option>
-    <option value ="2">Vulnerable</option>
-    <option value ="3">Near Threatened</option>
+    <option value ="Critically Endangered">Critically Endangered</option>
+    <option value ="Endangered">Endangered</option>
+    <option value ="Vulnerable">Vulnerable</option>
+    <option value ="Near Threatened">Near Threatened</option>
           </select>
     
       <label for="name">POPULATION</label>
@@ -61,14 +61,13 @@
       <label for="name">HABITAT</label>
       <input v-model="habitat" type="text" id="habitat">
     
-    <button type="button">POST ENTRY</button>
+    <button @click="addNewEntry" type="button">POST ENTRY</button>
     </div>
     
     <div id="image-upload-container">
       <div id="image"></div>
     
     </div>
-    <button @click="addNewEntry" type="button">Post New Entry</button>
     </form>
     </div>
 
@@ -123,7 +122,7 @@
           })
         });
         const data = await response.json();
-        console.log("New Entry has been added.");
+       this.animalsArray = data;
       },
       async getAnimals() {
         const response = await fetch('http://localhost:3000/animals');
