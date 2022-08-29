@@ -8,40 +8,6 @@
 
   <Banner />
 
-  <div>
-    <div>
-      <h2>New Entry</h2>
-    </div>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input v-model="name" id="name">
-      </div>
-      <div class="form-group">
-        <label for="scientific">Scientific Name</label>
-        <input v-model="scientific" id="scientific">
-      </div>
-      <div class="form-group">
-        <label for="habitats">Habitat</label>
-        <input v-model="habitats" id="habitats">
-      </div>
-      <div class="form-group">
-        <label for="population">Population</label>
-        <input v-model="population" id="population">
-      </div>
-      <div class="form-group">
-        <label for="statusId">Status</label>
-        <select v-model="statusId" id="statusId">
-          <option value="0">Critically Endangered</option>
-          <option value="1">Endangered</option>
-          <option value="2">Vulnerable</option>
-          <option value="3">Near Threatened</option>
-        </select>
-      </div>
-      <button @click="addNewEntry" type="button">Post New Entry</button>
-    </form>
-  </div>
-
   <div class="menu-container">
     <div id="menu-categories">
       <h4>Search by</h4>
@@ -53,8 +19,60 @@
         <li><button @click="getAnimalByCategory" value="3" type="button">Near Threatened</button></li>
       </ul>
     </div>
-    <!-- Post button insert here -->
+  
+    <div @click="displayForm" id="post-btn-container">
+    <div id="post-btn-text">
+      <h3>ADD ENTRY</h3>
+    </div>
+
+    <div id="circle">
+      <div class="cross vertical"></div>
+      <div class="cross"></div>
+    </div>
+
   </div>
+
+
+</div>
+
+
+<!--  -->
+<div id="new-input-popup">
+      <h2>NEW ENTRY</h2>
+    <form>
+      <div id="text-input-container">
+      <label for="name">NAME</label>
+      <input v-model="name" type="text" id="name">
+    
+      <label for="name">SCIENTIFIC NAME</label>
+      <input v-model="scientific" type="text" id="scientific">
+    
+      <label for="name">STATUS</label>
+     <select v-model="status" id="status" >
+    <option value ="0">Critically Endangered</option>
+    <option value ="1">Endangered</option>
+    <option value ="2">Vulnerable</option>
+    <option value ="3">Near Threatened</option>
+          </select>
+    
+      <label for="name">POPULATION</label>
+      <input v-model="population" type="text" id="population">
+    
+      <label for="name">HABITAT</label>
+      <input v-model="habitat" type="text" id="habitat">
+    
+    <button type="button">POST ENTRY</button>
+    </div>
+    
+    <div id="image-upload-container">
+      <div id="image"></div>
+    
+    </div>
+    <button @click="addNewEntry" type="button">Post New Entry</button>
+    </form>
+    </div>
+
+<!--  -->
 
   <div class="card-container">
 
