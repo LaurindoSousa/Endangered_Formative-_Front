@@ -4,7 +4,7 @@
                 <img src="./assets/images/hidde-rensink-Erzyy3Gy2LU-unsplash.jpg" alt="">
             </div>
             <div class="card-text">
-                <div class="card-status critical">
+                <div class="card-status">
                     <p>{{animalItem.status}}</p>
                 </div>
                 <div class="card-header">
@@ -16,7 +16,7 @@
                     <li class="card-items"><i class="fa-solid fa-chart-simple"></i>{{animalItem.population}}</li>
                 </ul>
                 <div class="card-more">
-                    <i class="fa-solid fa-trash-can" @click="deleteAnimals"></i>
+                    <i class="fa-solid fa-trash-can"></i>
                 </div>
             </div>
         </div>
@@ -33,7 +33,6 @@
 <style scoped>
     li{
        list-style: none;
-       border: 2px solid black;
     }
     .card__image{
        width: 300px;
@@ -41,11 +40,11 @@
        background-color: grey;
     }
     .card__image img{
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
     }
     p, li{
-    font-family: "Abel-Pro";
+        font-family: "Abel-Pro";
     }
     p, h1, h2, h3, h4, h5, h6, ul, li{
         margin: 0;
