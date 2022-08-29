@@ -130,6 +130,8 @@
         });
         const data = await response.json();
        this.animalsArray = data;
+
+       document.querySelector("#new-input-popup").style.display = "none";
       },
       async getAnimals() {
         const response = await fetch('http://localhost:3000/animals');

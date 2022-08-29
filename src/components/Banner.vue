@@ -5,7 +5,7 @@
         </div>
       <div id="banner-text">
         <h1>White Elephant</h1>
-        <p>Did you know that the white elephants can eat 300 tonnes a day whilst walking 3,000 kms in 2 days? That's from Toronto to LA Disney Land!</p>
+        <p>Did you know that the white elephants can eat 300 tonnes a day whilst walking 3,000 kms in 2 days?</p>
       </div>
     </section>
 </template>
@@ -41,12 +41,15 @@
         position: absolute;
         margin: 2em;
         color: white;
-        top: 260px;
+        top: 240px;
         width: 50%;
     }
 
     h1{
         margin-bottom: 0.5em;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+        font-size: 2em ;
     }
 </style>
 
