@@ -155,6 +155,10 @@
           document.querySelector("#all-animals").style.display = "flex";
         }
         },
+        displayForm(){
+  let form = document.querySelector("#new-input-popup");
+  form.style.display = "block"
+ }
       },
       mounted() {
         this.getAnimals();
