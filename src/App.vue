@@ -61,7 +61,7 @@
       <label for="name">HABITAT</label>
       <input v-model="habitat" type="text" id="habitat">
     
-    <button @click="addNewEntry" type="button">POST ENTRY</button>
+    <button @click="addNewEntry" type="button" id="post-btn">POST ENTRY</button>
     </div>
     
     <div id="image-upload-container">
@@ -76,11 +76,11 @@
   <div class="card-container">
 
     <ul id="categorised-list-items">
-      <AnimalListItem v-for="animal of categorisedArray" :animalItem="animal" :key="animal.id" />
+      <AnimalListItem @delete-animals="deleteAnimals" v-for="animal of categorisedArray" :animalItem="animal" :key="animal.id" />
     </ul>
 
     <ul id="all-animals">
-      <AnimalListItem v-for="animal of animalsArray" :animalItem="animal" :key="animal.id" />
+      <AnimalListItem @delete-animals="deleteAnimals" v-for="animal of animalsArray" :animalItem="animal" :key="animal.id" />
     </ul>
   </div>
 </template>
@@ -102,7 +102,7 @@
         statusId: 0,
         population: "",
         habitats: "",
-
+  
         animalsArray: [],
         categorisedArray: []
       }
@@ -191,5 +191,6 @@ label{
 
 #all-animals {
   display: flex;
+  gap:20px;
 }
 </style>
