@@ -8,7 +8,6 @@ const router = createRouter({
       name: 'app.vue',
       component: () => import('../App.vue')
     }
-    
   ]
 });
 

@@ -1,70 +1,69 @@
-
 *{
-    padding:0;
-    font-family: Arial, Helvetica, sans-serif;
-    top:0;
-    left:0;
-    margin:0;
-    padding:0;
-  }
-  
-  body{
-    padding:0 2em;
-  }
-  
-  /* Header menu */
-  
-  header{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  #header-donate{
-    width:50px;
-    border-radius: 25px;
-    border: 2px solid black;
-  }
-  
-  /* Category menu section */
-  
-  
-  .menu-container{
-    width:100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  #menu-categories{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap:8px;
-    overflow: hidden;
-    margin-top: 1em;
-  }
-  #menu-categories ul{
-    display:flex;
-    flex-direction: row;
-  overflow-x: scroll;
-  gap:4px;
-  list-style: none;
-  }
-  
-  
-  #menu-categories li{
-    width:100%;
-  }
-  #menu-categories button{
-    min-width:180px;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
+  top:0;
+  left:0;
+  margin:0;
+  padding:0;
+}
+
+body{
+  padding:0 2em;
+}
+
+/* Header menu */
+
+header{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#header-donate{
+  width:50px;
+  border-radius: 25px;
   border: 2px solid black;
-  padding:8px;
-  font-size:1em;
-  background-color: white;
-  
-  }
+}
+
+/* Category menu section */
+
+
+.menu-container{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#menu-categories{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:8px;
+  overflow: hidden;
+  margin-top: 1em;
+}
+#menu-categories ul{
+  display:flex;
+  flex-direction: row;
+overflow-x: scroll;
+gap:4px;
+list-style: none;
+}
+
+
+#menu-categories li{
+  width:100%;
+}
+#menu-categories button{
+  min-width:180px;
+border: 2px solid black;
+padding:8px;
+font-size:1em;
+background-color: white;
+
+}
