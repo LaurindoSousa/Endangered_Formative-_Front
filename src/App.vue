@@ -30,8 +30,8 @@
         <input v-model="population" id="population">
       </div>
       <div class="form-group">
-        <label for="status">Status</label>
-        <select v-model="status" id="status">
+        <label for="statusId">Status</label>
+        <select v-model="statusId" id="statusId">
           <option value="0">Critically Endangered</option>
           <option value="1">Endangered</option>
           <option value="2">Vulnerable</option>
@@ -81,7 +81,8 @@
       return {
         name: "",
         scientific: "",
-        status: 0,
+        status: "",
+        statusId: 0,
         population: "",
         habitats: "",
 
@@ -98,6 +99,7 @@
             name: this.name,
             scientific: this.scientific,
             status: this.status,
+            statusId: this.statusId,
             habitats: this.habitats,
             population: this.population,
           })
@@ -120,7 +122,7 @@
         console.log(data);
         this.animalsArray = data;
       },
-      getAnimalsByCategory(e) {
+      getAnimalByCategory(e) {
         const categoryValue = e.target.value;
         if(categoryValue != "All") {
           const categorisedArray = this.animalsArray.filter((animal) => {
