@@ -1,7 +1,7 @@
 <template>
 <div class="single-card">
             <div class="card-image">
-                <img src="./assets/images/hidde-rensink-Erzyy3Gy2LU-unsplash.jpg" alt="">
+                <img src="" alt="">
             </div>
             <div class="card-text">
                 <div class="card-status">
@@ -55,20 +55,15 @@
         background-color: #E5E7E9;
     }
     h2{
-        font-family: "Lettown-Hills";
-        font-weight: 100;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+        font-size:2em;
     }
-    .cards{
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
     .single-card{
         width: 300px;
-        height: 432px;
+        height: 500px;
         background-color: white;
-        box-shadow: 10px 10px 10px #888888;
+        box-shadow: 6px 8px 10px #888888;
         margin: 1em 0;
     }
 
@@ -85,7 +80,6 @@
         object-fit: cover;
         object-position: 50% 50%;
     }
-
     .card-text{
         padding: 1em;
     }
@@ -93,7 +87,10 @@
     .card-status{
         text-transform: uppercase;
     }
-
+    .card-status p{
+        font-family: 'Oswald', sans-serif;
+        
+    }
     .card-list{
         text-decoration: none;
     }
@@ -101,6 +98,8 @@
     .card-items{
         list-style: none;
         margin: 1em 0;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
     }
 
     .card-items i{
