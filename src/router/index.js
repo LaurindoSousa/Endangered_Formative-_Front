@@ -7,8 +7,8 @@ const router = createRouter({
       path: '/animals',
       name: 'app.vue',
       component: () => import('../App.vue')
-    },
+    }
   ]
-})
+});
 
 export default router

@@ -5,7 +5,7 @@
         <h3>Did you know that the white elephants can eat 300tones a day whilst walking 3000km in 2 days? That's from Toronto to LA Disney Land!</h3>
       </div>
     </section>
-    </template>
+</template>
     
 <script>
     export default {
@@ -24,4 +24,4 @@
     width: 50%;
     }
 </style>
-    
+
