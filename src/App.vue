@@ -67,12 +67,17 @@
     
       <label for="name">HABITAT</label>
       <input v-model="habitat" type="text" id="habitat">
+
+      <label for="name">IMAGE URL</label>
+      <input v-model="url" type="text" id="url">
     
     <button @click="addNewEntry" type="button" id="post-btn">POST ENTRY</button>
     </div>
     
     <div id="image-upload-container">
-      <div id="image"></div>
+      <div id="image">
+        <img :src="url" alt="">
+      </div>
     
     </div>
     </form>
@@ -109,6 +114,7 @@
         statusId: 0,
         population: "",
         habitats: "",
+        url: "",
   
         animalsArray: [],
         categorisedArray: []
@@ -126,10 +132,13 @@
             statusId: this.statusId,
             habitats: this.habitats,
             population: this.population,
+            url: this.url,
           })
         });
         const data = await response.json();
        this.animalsArray = data;
+
+       document.querySelector("#new-input-popup").style.display = "none";
       },
       async getAnimals() {
         const response = await fetch('http://localhost:3000/animals');

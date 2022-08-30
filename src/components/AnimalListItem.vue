@@ -1,7 +1,7 @@
 <template>
 <div class="single-card">
             <div class="card-image">
-                <img src="" alt="">
+                <img :src="animalItem.url" alt="">
             </div>
             <div class="card-text">
                 <div class="card-status">
@@ -16,7 +16,7 @@
                     <li class="card-items"><i class="fa-solid fa-chart-simple"></i>{{animalItem.population}}</li>
                 </ul>
                 <div class="card-more">
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i class="fa-solid fa-trash-can" @click="$emit('deleteAnimals',animalItem.id)"></i>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
     export default {
         props:{
         animalItem: Object,
-        },
+        }
     }
 </script>
    
